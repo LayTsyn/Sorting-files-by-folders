@@ -3,12 +3,16 @@ Based on the filesystem C++17 standard library, a small program has been impleme
 
 ## Usage
 
+in development
 
 ## Installation
 
+in development
 
 ## Tests
 
+in development
 
 ## System requirements
 
+in development
