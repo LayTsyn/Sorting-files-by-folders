@@ -38,7 +38,7 @@ It will run the tool, waiting for your input.
 
 Navigate to the directory where you want to sort the files into folders. For example:
 ```bash
->>cd Desktop\test
+>>cd Desktop\test\
 ```
 Let's check that there are files in this folder.
 ```bash
