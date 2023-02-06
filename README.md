@@ -115,6 +115,13 @@ If everything was done correctly, the sorting is done. Let's make sure of that. 
 </details>
 
  Files named "None" have not been moved across folders because they have no extension, as you can see. And we ran sorting by file extension.
+ The result of sorting by the `-d` (`--date`) flag looks something like this.
+ 
+ <details>
+ <summary>My result after sort by the date:</summary>
+<sub> 2023_February_06  <br/> </sub>
+<sub> 2023_January_30  <br/> </sub>
+ </details>
  
 ## 4. Tests
 
