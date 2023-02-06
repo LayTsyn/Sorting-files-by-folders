@@ -87,8 +87,9 @@ Let's check that there are files in this folder.
 <sub> Nonefile — copy— copy— copy  <br/> </sub>
 <sub> png-clipart-4k-resolution-high-definition-television-high-definition-video-men-s-camera-action-electronics-microphone.png  <br/> </sub>
 <sub> Visual Studio Code.lnk  <br/> </sub>
-  </details>
-Then you change the directory to the cloned sf.exe file. And run the program with the flag and path to the files you want to sort.
+</details>
+
+Then you change the directory to the cloned `sf.exe` file. And run the program with the flag and path to the files you want to sort. The flag I will choose `-e` (`--extenstion` - sort files by extension) and point the path to the folder test on the Desktop (if the `sf.exe` program is in the same directory as the files you want to sort, you can leave the second parameter blank)
 
 ```bash
 >>sf -e [your_path]\Desktop\test\
