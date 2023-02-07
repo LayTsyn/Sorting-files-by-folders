@@ -32,9 +32,9 @@ int sortfilesbyfolders::menuCallBack(int argc, char** argv)
 bool sortfilesbyfolders::sortFilesByFolders(E_CategorySort categorySort, std::string_view pathToDirectory)
 {
 	std::string typeSort, newPath;
+	std::filesystem::path pthOld, pthNew;
 	if (std::filesystem::exists((pathToDirectory)))
 	{
-
 		for (const auto& file : std::filesystem::directory_iterator(pathToDirectory))
 		{
 			if (file.status().type() == std::filesystem::file_type::regular)
@@ -43,23 +43,24 @@ bool sortfilesbyfolders::sortFilesByFolders(E_CategorySort categorySort, std::st
 				{
 				case sortfilesbyfolders::E_CategorySort::extension:
 				{
-					typeSort = sortfilesbyfolders::getExtensionFile(file.path().filename().string());
+					typeSort = file.path().extension().string();
 					break;
 				}
 				case sortfilesbyfolders::E_CategorySort::date:
 				{
 					typeSort = sortfilesbyfolders::getDateFile(file.last_write_time());
-
 					break;
 				}
 				}
-				newPath = pathToDirectory.data();
-				newPath += pathToDirectory.back() == '\\' ? typeSort + '\\' : '\\' + typeSort + '\\';
-				std::filesystem::create_directory(newPath);
-				std::filesystem::rename(file.path().string(), newPath + file.path().filename().string());
+				pthOld = file.path();
+				pthNew = file.path().parent_path().string() + "/" + typeSort + "/";
+				pthNew.make_preferred();
+				std::filesystem::create_directory(pthNew);
+				pthNew += file.path().filename().string();
+				pthNew.make_preferred();
+				std::filesystem::rename(pthOld, pthNew);
 			}
 		}
-
 	}
 	return false;
 }
